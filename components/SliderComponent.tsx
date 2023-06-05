@@ -1,10 +1,11 @@
 // import styles from "./Main.module.css";
 import { Typography, Slider } from '@mui/material';
 import styles from "./SliderComponent.module.css";
+import { useState } from 'react';
 
 const SliderComponent: React.FC = () => {
 
-  const value = 250000;
+  const [value, setValue] = useState<number>(250000);
 
   const calculateValue = (value: number) => {
     // calculate value
@@ -17,6 +18,7 @@ const SliderComponent: React.FC = () => {
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     // handle slider change
+    setValue(newValue as number);
   };
 
   return (
