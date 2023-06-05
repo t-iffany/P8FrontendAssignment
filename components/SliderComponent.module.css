@@ -1,0 +1,33 @@
+.sliderContainer {
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: #c1c6d4;
+  font-size: 14px;
+}
+
+.value {
+  font-size: 40px;
+}
+
+.thumb {
+  background-color: white;
+  border: 2px solid #1C76D2;
+}
+
+.track {
+  height: 10%;
+}
+
+.rail {
+  background-color: #c1c6d4;
+  height: 10%;
+}
+
+.sliderMinMax {
+  display: flex;
+  justify-content: space-between;
+  color: #c1c6d4;
+  font-size: 12px;
+}
