@@ -1,0 +1,27 @@
+.main {
+  /* flex: 1;
+  position: relative;
+  margin-top: 1rem;
+  display: flex;
+  */
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.title {
+  font-size: medium;
+  margin-bottom: 0.5rem;
+}
+
+.subTitle {
+  font-size: x-small;
+  margin-bottom: 3rem;
+}
+
+.container {
+  /* display: flex;
+  width: 100%;
+  flex-direction: row; */
+  column-count: 2;
+  column-gap: 6rem;
+}
