@@ -1,7 +1,7 @@
 import SliderComponent from "./SliderComponent";
 import TermYears from "./TermYears";
 
-const LeftSection: React.FC = () => {
+const LeftSection = () => {
   return (
     <div>
       <SliderComponent />

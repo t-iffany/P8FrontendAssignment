@@ -3,7 +3,7 @@ import { Typography, Slider } from '@mui/material';
 import styles from "./SliderComponent.module.css";
 import { useState } from 'react';
 
-const SliderComponent: React.FC = () => {
+const SliderComponent = () => {
 
   const [value, setValue] = useState<number>(250000);
 

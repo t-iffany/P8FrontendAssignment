@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styles from "./PaymentCard.module.css";
 
-const PaymentCard: React.FC = () => {
+const PaymentCard = () => {
   return (
     <Card className={styles.card}>
       <CardContent className={styles.cardContent}>

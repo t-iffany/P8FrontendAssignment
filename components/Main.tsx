@@ -2,7 +2,7 @@ import styles from "./Main.module.css";
 import LeftSection from "./LeftSection";
 import PaymentCard from "./PaymentCard";
 
-const Main: React.FC = () => {
+const Main = () => {
   return (
     <div className={styles.main}>
 

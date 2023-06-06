@@ -1,7 +1,7 @@
 // import styles from "./Main.module.css";
 import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 
-const TermYears: React.FC = () => {
+const TermYears = () => {
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend" id="period-radio-group-label"
