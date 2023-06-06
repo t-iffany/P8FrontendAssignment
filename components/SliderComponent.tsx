@@ -3,9 +3,16 @@ import { Typography, Slider } from '@mui/material';
 import styles from "./SliderComponent.module.css";
 import { useState } from 'react';
 
-const SliderComponent = () => {
+interface SliderComponentProps {
+  title: string;
+  min: number;
+  max: number;
+  value: number;
+  setValue: (value: number) => void;
+  step: number;
+}
 
-  const [value, setValue] = useState<number>(250000);
+const SliderComponent = (props: SliderComponentProps) => {
 
   const calculateValue = (value: number) => {
     // calculate value
@@ -18,21 +25,21 @@ const SliderComponent = () => {
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     // handle slider change
-    setValue(newValue as number);
+    props.setValue(newValue as number);
   };
 
   return (
     <div className={styles.sliderContainer}>
       <Typography id="non-linear-slider">
-        <div className={styles.title}>Purchase Price</div>
-        <div className={styles.value}>{valueLabelFormat(calculateValue(value))}</div>
+        <div className={styles.title}>{props.title}</div>
+        <div className={styles.value}>{valueLabelFormat(calculateValue(props.value))}</div>
       </Typography>
       <Slider
         size="small"
-        value={value}
-        min={50000}
-        step={1}
-        max={2500000}
+        value={props.value}
+        min={props.min}
+        step={props.step}
+        max={props.max}
         scale={calculateValue}
         getAriaValueText={valueLabelFormat}
         valueLabelFormat={valueLabelFormat}
@@ -46,8 +53,8 @@ const SliderComponent = () => {
         }}
       />
       <div className={styles.sliderMinMax}>
-        <div>$50K</div>
-        <div>$2.5M</div>
+        <div>{props.min}</div>
+        <div>{props.max}</div>
       </div>
     </div>
   );

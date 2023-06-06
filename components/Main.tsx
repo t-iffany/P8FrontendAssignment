@@ -30,12 +30,19 @@ const Main = () => {
 
       <div className={styles.container}>
 
-        {/* <div className={styles.left}>
-          <LeftSection />
-        </div> */}
+        <div className={styles.left}>
+          <LeftSection
+            principal={principal}
+            setPrincipal={setPrincipal}
+            annualInterestRate={annualInterestRate}
+            setAnnualInterestRate={setAnnualInterestRate}
+          />
+          <p>principal: {principal}</p>
+          <p>annualInterestRate: {annualInterestRate}</p>
+        </div>
         <div>
-          <SliderComponent />
-          <SliderComponent />
+          {/* <SliderComponent />
+          <SliderComponent /> */}
           <TermYears termOfLoan={termOfLoan} setTermOfLoan={handleTermOfLoanChange} />
           <p>Selected Term Of Loan: {termOfLoan} Years</p>
         </div>
