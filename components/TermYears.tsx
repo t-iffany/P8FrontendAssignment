@@ -28,17 +28,14 @@ const TermYears = (props: TermYearsProps) => {
         aria-labelledby="termYears-radio-group-label"
         name="radio-group"
         sx={{
-          "& .TermYears-root .Mui-checked": {
-            color: "#4C3272",
-          },
           paddingLeft: "0.4rem",
         }}
         value={props.termOfLoan.toString()}
         onChange={handleChange}
       >
-        <FormControlLabel value="20" control={<Radio />} label="20 Years" />
-        <FormControlLabel value="25" control={<Radio />} label="25 Years" />
-        <FormControlLabel value="30" control={<Radio />} label="30 Years" />
+        <FormControlLabel value="20" control={<Radio sx={{ "&.Mui-checked": { color: "#4C3272" } }} />} label="20 Years" />
+        <FormControlLabel value="25" control={<Radio sx={{ "&.Mui-checked": { color: "#4C3272" } }} />} label="25 Years" />
+        <FormControlLabel value="30" control={<Radio sx={{ "&.Mui-checked": { color: "#4C3272" } }} />} label="30 Years" />
       </RadioGroup>
     </FormControl>
   );
