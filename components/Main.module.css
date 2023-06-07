@@ -9,13 +9,15 @@
 }
 
 .title {
-  font-size: medium;
+  font-size: 33px;
   margin-bottom: 0.5rem;
+  color: #3D515B;
 }
 
 .subTitle {
-  font-size: x-small;
+  font-size: 17px;
   margin-bottom: 3rem;
+  color: #C1CDD9;
 }
 
 .container {
