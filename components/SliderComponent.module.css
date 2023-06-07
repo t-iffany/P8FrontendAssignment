@@ -3,12 +3,21 @@
 }
 
 .title {
-  color: #c1c6d4;
+  color: #9facb6;
   font-size: 14px;
+  font-weight: bold;
+}
+
+.dollarSign {
+  font-size: 20px;
+  position: absolute;
+  margin-right: 5px;
 }
 
 .value {
   font-size: 40px;
+  position: relative;
+  margin-left: 10px;
 }
 
 .thumb {
@@ -21,13 +30,15 @@
 }
 
 .rail {
-  background-color: #c1c6d4;
+  background-color: #9facb6;
   height: 10%;
 }
 
 .sliderMinMax {
   display: flex;
   justify-content: space-between;
-  color: #c1c6d4;
+  color: #9facb6;
   font-size: 12px;
+  width: 100%;
+  font-weight: bold;
 }
