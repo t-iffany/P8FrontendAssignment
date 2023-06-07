@@ -19,9 +19,9 @@ const Main = () => {
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
   const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
 
-  const handleTermOfLoanChange = (currentTermOfLoan: number) => {
-    setTermOfLoan(currentTermOfLoan);
-  };
+  // const handleTermOfLoanChange = (currentTermOfLoan: number) => {
+  //   setTermOfLoan(currentTermOfLoan);
+  // };
 
   // console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
 
@@ -92,16 +92,17 @@ const Main = () => {
             setPrincipal={setPrincipal}
             annualInterestRate={annualInterestRate}
             setAnnualInterestRate={setAnnualInterestRate}
+            termOfLoan={termOfLoan}
+            setTermOfLoan={setTermOfLoan}
           />
           <p>principal: {principal}</p>
           <p>annualInterestRate: {annualInterestRate}</p>
-        </div>
-        <div>
-          {/* <SliderComponent />
-          <SliderComponent /> */}
-          <TermYears termOfLoan={termOfLoan} setTermOfLoan={handleTermOfLoanChange} />
           <p>Selected Term Of Loan: {termOfLoan} Years</p>
         </div>
+        {/* <div>
+          <TermYears termOfLoan={termOfLoan} setTermOfLoan={handleTermOfLoanChange} />
+          <p>Selected Term Of Loan: {termOfLoan} Years</p>
+        </div> */}
 
         <div className={styles.right}>
           <PaymentCard monthlyPayment={monthlyPayment} setMonthlyPayment={setMonthlyPayment} />

@@ -7,6 +7,8 @@ interface LeftSectionProps {
   setPrincipal: (value: number) => void;
   annualInterestRate: number;
   setAnnualInterestRate: (value: number) => void;
+  termOfLoan: number;
+  setTermOfLoan: (value: number) => void;
 }
 
 const LeftSection = (props: LeftSectionProps) => {
@@ -22,6 +24,10 @@ const LeftSection = (props: LeftSectionProps) => {
   const handleInterestChange = (value: number) => {
     // setAnnualInterestRate(value);
     props.setAnnualInterestRate(value);
+  };
+
+  const handleTermOfLoanChange = (value: number) => {
+    props.setTermOfLoan(value);
   };
 
   return (
@@ -46,7 +52,10 @@ const LeftSection = (props: LeftSectionProps) => {
         // // onChange={handleInterestChange}
         step={0.5}
       />
-      {/* <TermYears /> */}
+      <TermYears
+        termOfLoan={props.termOfLoan}
+        setTermOfLoan={handleTermOfLoanChange}
+      />
     </div>
   );
 };
