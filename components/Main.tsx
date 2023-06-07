@@ -19,12 +19,6 @@ const Main = () => {
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
   const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
 
-  // const handleTermOfLoanChange = (currentTermOfLoan: number) => {
-  //   setTermOfLoan(currentTermOfLoan);
-  // };
-
-  // console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
-
   useEffect(() => {
     // fetch monthlyPayment when any of the query parameters change
     const fetchData = async () => {
@@ -46,34 +40,6 @@ const Main = () => {
     };
 
     fetchData();
-
-
-    // fetch('/api/mortgageCalculation', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     principal,
-    //     annualInterestRate,
-    //     termOfLoan,
-    //   }),
-    // })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error('Network response was not ok');
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     // Process the response data
-    //     console.log('data: ', data);
-    //     setMonthlyPayment(data.monthlyPayment);
-    //   })
-    //   .catch((error) => {
-    //     // Handle the error
-    //     console.error('error: ', error);
-    //   });
 
   }, [principal, annualInterestRate, termOfLoan]);
 
@@ -99,10 +65,6 @@ const Main = () => {
           <p>annualInterestRate: {annualInterestRate}</p>
           <p>Selected Term Of Loan: {termOfLoan} Years</p>
         </div>
-        {/* <div>
-          <TermYears termOfLoan={termOfLoan} setTermOfLoan={handleTermOfLoanChange} />
-          <p>Selected Term Of Loan: {termOfLoan} Years</p>
-        </div> */}
 
         <div className={styles.right}>
           <PaymentCard monthlyPayment={monthlyPayment} setMonthlyPayment={setMonthlyPayment} />
