@@ -3,22 +3,24 @@ import TermYears from "./TermYears";
 import { useState } from "react";
 
 interface LeftSectionProps {
+  principal: number;
   setPrincipal: (value: number) => void;
+  annualInterestRate: number;
   setAnnualInterestRate: (value: number) => void;
 }
 
 const LeftSection = (props: LeftSectionProps) => {
 
-  const [principal, setPrincipal] = useState<number>(250000);
-  const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
+  // const [principal, setPrincipal] = useState<number>(250000);
+  // const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
 
   const handlePrincipalChange = (value: number) => {
-    setPrincipal(value);
+    // setPrincipal(value);
     props.setPrincipal(value);
   };
 
   const handleInterestChange = (value: number) => {
-    setAnnualInterestRate(value);
+    // setAnnualInterestRate(value);
     props.setAnnualInterestRate(value);
   };
 
@@ -28,7 +30,7 @@ const LeftSection = (props: LeftSectionProps) => {
         title="Purchase Price"
         min={50000}
         max={2500000}
-        value={principal}
+        value={props.principal}
         setValue={handlePrincipalChange} // this updates the principal: principal
         // setValue={setPrincipal} //This updates the slider value
         // onChange={handlePrincipalChange}
@@ -38,7 +40,7 @@ const LeftSection = (props: LeftSectionProps) => {
         title="Interest Rate"
         min={0}
         max={25}
-        value={annualInterestRate}
+        value={props.annualInterestRate}
         setValue={handleInterestChange}
         // // setValue={setAnnualInterestRate}
         // // onChange={handleInterestChange}
