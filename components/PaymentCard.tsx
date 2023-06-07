@@ -13,24 +13,29 @@ interface PaymentCardProps {
 const PaymentCard = (props: PaymentCardProps) => {
 
   return (
-    <Card className={styles.card}>
-      <CardContent className={styles.cardContent}>
+    <div className={styles.container}>
+      <Card className={styles.card}>
+        {/* <CardContent className={styles.cardContent}> */}
         <Typography className={styles.title}>
           Your total monthly payment will be
         </Typography>
-        <Typography className={styles.payment}>
-          {props.monthlyPayment}
-        </Typography>
+        <div className={styles.payment}>
+          <span className={styles.dollarSign}>$</span>
+          <span className={styles.paymentValue}>{Math.floor(props.monthlyPayment)}</span>
+          <span className={styles.cents}>{(props.monthlyPayment % 1 * 100).toFixed(0)}</span>
+          {/* {props.monthlyPayment} */}
+        </div>
         <Typography className={styles.subText}>
           /month
         </Typography>
-      </CardContent>
-      {/* <CardActions> */}
-      {/* <div className={styles.buttonContainer}> */}
-      <Button variant="contained" className={styles.button}>Apply Today</Button>
-      {/* </div> */}
-      {/* </CardActions> */}
-    </Card>
+        {/* </CardContent> */}
+        {/* <CardActions> */}
+        {/* <div className={styles.buttonContainer}> */}
+        <Button variant="contained" className={styles.button}>Apply Today</Button>
+        {/* </div> */}
+        {/* </CardActions> */}
+      </Card>
+    </div >
   );
 };
 
