@@ -2,8 +2,9 @@ import styles from "./Main.module.css";
 import LeftSection from "./LeftSection";
 import SliderComponent from "./SliderComponent";
 import TermYears from "./TermYears";
-// import PaymentCard from "./PaymentCard";
-import { useState } from "react";
+import PaymentCard from "./PaymentCard";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Main = () => {
 
@@ -16,10 +17,65 @@ const Main = () => {
   const [principal, setPrincipal] = useState<number>(250000);
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
+  const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
 
   const handleTermOfLoanChange = (currentTermOfLoan: number) => {
     setTermOfLoan(currentTermOfLoan);
   };
+
+  // console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
+
+  useEffect(() => {
+    // fetch monthlyPayment when any of the query parameters change
+    const fetchData = async () => {
+      try {
+        console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
+
+        const response = await axios.post("/api/mortgageCalculation", {
+          principal,
+          annualInterestRate,
+          termOfLoan,
+        });
+        const { monthlyPayment } = response.data;
+        setMonthlyPayment(monthlyPayment);
+        console.log("Response.data : ", response.data);
+
+      } catch (error) {
+        console.log("Error calculating payment: ", error);
+      }
+    };
+
+    fetchData();
+
+
+    // fetch('/api/mortgageCalculation', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     principal,
+    //     annualInterestRate,
+    //     termOfLoan,
+    //   }),
+    // })
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error('Network response was not ok');
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     // Process the response data
+    //     console.log('data: ', data);
+    //     setMonthlyPayment(data.monthlyPayment);
+    //   })
+    //   .catch((error) => {
+    //     // Handle the error
+    //     console.error('error: ', error);
+    //   });
+
+  }, [principal, annualInterestRate, termOfLoan]);
 
 
   return (
@@ -48,7 +104,8 @@ const Main = () => {
         </div>
 
         <div className={styles.right}>
-          {/* <PaymentCard /> */}
+          <PaymentCard monthlyPayment={monthlyPayment} setMonthlyPayment={setMonthlyPayment} />
+          <p>MonthlyPayment: {monthlyPayment}</p>
         </div>
 
       </div>
