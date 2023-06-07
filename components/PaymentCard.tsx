@@ -5,7 +5,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styles from "./PaymentCard.module.css";
 
-const PaymentCard = () => {
+interface PaymentCardProps {
+  monthlyPayment: number;
+  setMonthlyPayment: (value: number) => void;
+}
+
+const PaymentCard = (props: PaymentCardProps) => {
+
   return (
     <Card className={styles.card}>
       <CardContent className={styles.cardContent}>
@@ -13,7 +19,7 @@ const PaymentCard = () => {
           Your total monthly payment will be
         </Typography>
         <Typography className={styles.payment}>
-          853
+          {props.monthlyPayment}
         </Typography>
         <Typography className={styles.subText}>
           /month
