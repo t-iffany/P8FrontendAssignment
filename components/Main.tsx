@@ -1,18 +1,10 @@
 import styles from "./Main.module.css";
 import LeftSection from "./LeftSection";
-import SliderComponent from "./SliderComponent";
-import TermYears from "./TermYears";
 import PaymentCard from "./PaymentCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Main = () => {
-
-  // const [state, setState] = useState({
-  //   principal: 250000,
-  //   annualInterestRate: 1.5,
-  //   termOfLoan: 25,
-  // });
 
   const [principal, setPrincipal] = useState<number>(250000);
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
@@ -23,10 +15,6 @@ const Main = () => {
     // fetch monthlyPayment when any of the query parameters change
     const fetchData = async () => {
       try {
-        console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
-        console.log(typeof principal);
-        console.log(typeof annualInterestRate);
-        console.log(typeof termOfLoan);
 
         const response = await axios.post("/api/mortgageCalculation", {
           principal,
@@ -35,7 +23,8 @@ const Main = () => {
         });
         const { monthlyPayment } = response.data;
         setMonthlyPayment(monthlyPayment);
-        console.log("Response.data : ", response.data);
+
+        // console.log("Response.data : ", response.data);
 
       } catch (error) {
         console.log("Error calculating payment: ", error);
