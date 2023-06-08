@@ -1,7 +1,6 @@
 // import styles from "./Main.module.css";
-import { Typography, Slider } from '@mui/material';
+import { Slider } from '@mui/material';
 import styles from "./SliderComponent.module.css";
-import { useState } from 'react';
 
 interface SliderComponentProps {
   title: string;
@@ -20,7 +19,36 @@ const SliderComponent = (props: SliderComponentProps) => {
   };
 
   const valueLabelFormat = (value: number) => {
+    if (props.title === "Purchase Price") {
+
+      return `${value.toLocaleString()}`;
+
+    } else if (props.title === "Interest Rate") {
+
+      return `${value.toFixed(1)}%`;
+    }
+
     return `${value}`;
+  };
+
+  const formatMinValue = () => {
+    if (props.title === "Purchase Price") {
+      const minValue = props.min / 1000;
+      return `$${minValue}K`;
+    }
+
+    return props.min;
+  };
+
+  const formatMaxValue = () => {
+    if (props.title === "Purchase Price") {
+      const maxValue = props.max / 1000000;
+      return `$${maxValue}M`;
+    } else if (props.title === "Interest Rate") {
+      return `${props.max}%`;
+    }
+
+    return props.max;
   };
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -30,10 +58,13 @@ const SliderComponent = (props: SliderComponentProps) => {
 
   return (
     <div className={styles.sliderContainer}>
-      <Typography id="non-linear-slider">
-        <div className={styles.title}>{props.title}</div>
-        <div className={styles.value}>{valueLabelFormat(calculateValue(props.value))}</div>
-      </Typography>
+      <div className={styles.title}>{props.title}</div>
+      <div className={styles.value}>
+        {props.title === "Purchase Price" && (
+          <span className={styles.dollar}>$</span>
+        )}
+        {valueLabelFormat(calculateValue(props.value))}
+      </div>
       <Slider
         size="small"
         value={props.value}
@@ -53,8 +84,8 @@ const SliderComponent = (props: SliderComponentProps) => {
         }}
       />
       <div className={styles.sliderMinMax}>
-        <div>{props.min}</div>
-        <div>{props.max}</div>
+        <div className={styles.min}>{formatMinValue()}</div>
+        <div className={styles.max}>{formatMaxValue()}</div>
       </div>
     </div>
   );

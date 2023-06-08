@@ -40,9 +40,16 @@
 
 .sliderMinMax {
   display: flex;
-  justify-content: space-between;
   color: #9facb6;
   font-size: 14px;
   width: 100%;
-  margin-top: -5px;
+  margin-top: -8px;
+}
+
+.min {
+  margin-right: auto;
+}
+
+.max {
+  margin-left: auto;
 }
