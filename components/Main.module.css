@@ -27,3 +27,9 @@
   column-count: 2;
   column-gap: 6rem;
 }
+
+@media (max-width: 768px) {
+  .container {
+    column-count: 1;
+  }
+}
