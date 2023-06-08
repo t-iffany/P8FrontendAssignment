@@ -40,7 +40,7 @@ const LeftSection = (props: LeftSectionProps) => {
         setValue={handlePrincipalChange} // this updates the principal: principal
         // setValue={setPrincipal} //This updates the slider value
         // onChange={handlePrincipalChange}
-        step={10000}
+        step={50000}
       />
       <SliderComponent
         title="Interest Rate"
