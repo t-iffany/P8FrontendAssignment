@@ -35,10 +35,25 @@ export default function handler(
 }
 
 function calculatePayment({ principal, annualInterestRate, termOfLoan }: MortgageParams) {
-  var percentageRate = (annualInterestRate / 100) / 1200;
+  // console.log('principal: ', principal);
+  // console.log('annualInterestRate: ', annualInterestRate);
+  // console.log('termOfLoan: ', termOfLoan);
+
+  var percentageRate = annualInterestRate / 1200;
+
+  // console.log("percentageRate: ", percentageRate);
+
   var lengthOfLoan = 12 * termOfLoan;
+
+  // console.log('lengthOfLoan: ', lengthOfLoan);
+
   var monthlyPayment = (principal * percentageRate) / (1 - (Math.pow((1 + percentageRate), lengthOfLoan * -1)));
+
+  // console.log('monthlyPayment: ', monthlyPayment);
+
   const payment = monthlyPayment.toFixed(2);
+
+  // console.log('payment: ', payment);
 
   return payment;
 } 
