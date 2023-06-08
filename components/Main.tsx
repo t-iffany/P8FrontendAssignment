@@ -24,6 +24,9 @@ const Main = () => {
     const fetchData = async () => {
       try {
         console.log("principal, interest, term: ", principal, annualInterestRate, termOfLoan);
+        console.log(typeof principal);
+        console.log(typeof annualInterestRate);
+        console.log(typeof termOfLoan);
 
         const response = await axios.post("/api/mortgageCalculation", {
           principal,
@@ -61,14 +64,10 @@ const Main = () => {
             termOfLoan={termOfLoan}
             setTermOfLoan={setTermOfLoan}
           />
-          <p>principal: {principal}</p>
-          <p>annualInterestRate: {annualInterestRate}</p>
-          <p>Selected Term Of Loan: {termOfLoan} Years</p>
         </div>
 
         <div className={styles.right}>
           <PaymentCard monthlyPayment={monthlyPayment} setMonthlyPayment={setMonthlyPayment} />
-          <p>MonthlyPayment: {monthlyPayment}</p>
         </div>
 
       </div>
