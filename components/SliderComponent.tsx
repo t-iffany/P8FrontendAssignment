@@ -1,4 +1,3 @@
-// import styles from "./Main.module.css";
 import { Slider } from '@mui/material';
 import styles from "./SliderComponent.module.css";
 

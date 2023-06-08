@@ -1,15 +1,11 @@
-// import styles from "./Main.module.css";
 import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
-// import { Dispatch, SetStateAction } from "react";
 
 interface TermYearsProps {
   termOfLoan: number;
-  // setTermOfLoan: Dispatch<SetStateAction<number>>;
   setTermOfLoan: (value: number) => void;
 }
 
 const TermYears = (props: TermYearsProps) => {
-  // const TermYears: React.FC<TermYearsProps> = ({ termOfLoan, setTermOfLoan }) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.setTermOfLoan(parseInt(event.target.value, 10));

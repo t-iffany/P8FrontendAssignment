@@ -3,8 +3,6 @@
   position: relative;
   flex-direction: column;
   align-items: center;
-  /* flex-grow: 1;
-  flex-basis: 50%; */
 }
 
 .card {
@@ -13,11 +11,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* width: 39vW;
-  height: 33vW; */
   min-width: 570px;
   height: 470px;
-  /* max-width: 500px; */
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
@@ -27,10 +22,6 @@
   box-shadow: 0 0 26px #CCDBF3;
   font-weight: bolder;
   overflow: contain;
-}
-
-.cardContent {
-  position: relative;
 }
 
 .title {
@@ -76,13 +67,6 @@
   text-align: center;
   color: #9FAEB9;
 }
-
-/* .buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
 
 .button {
   text-transform: none;
