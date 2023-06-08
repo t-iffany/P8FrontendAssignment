@@ -32,4 +32,9 @@
   .container {
     column-count: 1;
   }
+
+  .right {
+    margin-top: 25px;
+    transform: scale(0.8);
+  }
 }
